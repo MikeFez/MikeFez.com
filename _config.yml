@@ -109,7 +109,7 @@ analytics:
 author:
   name             : "Your Name"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Tmp **stuff**."
+  bio              : "Temp test **stuff**."
   location         : "Somewhere"
   email            :
   links:
