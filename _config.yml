@@ -23,7 +23,7 @@ name                     : "Michael Fessenden"
 description              : "A mixture of ideas and projects"
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
-repository               : "MikeFez/mikefez.github.io" # GitHub username/repo-name e.g. "MikeFez/mikefez.github.io"
+repository               : "MikeFez/MikeFez.com" # GitHub username/repo-name e.g. "MikeFez/mikefez.github.io"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
@@ -109,7 +109,7 @@ analytics:
 author:
   name             : "Michael Fessenden"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Temp test **stuff**."
+  bio              : "Temp test **stuff** test."
   location         : "Beverly, MA"
   email            :
   links:
