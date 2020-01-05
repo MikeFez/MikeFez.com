@@ -107,15 +107,15 @@ analytics:
 
 # Site Author
 author:
-  name             : "Your Name"
+  name             : "Michael Fessenden"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "Temp test **stuff**."
-  location         : "Somewhere"
+  location         : "Beverly, MA"
   email            :
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      url: mailto:mikefez@gmail.com
+      url: mailto:michael@mikefez.com
     - label: "Website"
       icon: "fas fa-fw fa-link"
       url: "https://mikefez.com"
