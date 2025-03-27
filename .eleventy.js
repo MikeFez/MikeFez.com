@@ -2,8 +2,8 @@ const moment = require('moment');
 
 moment.locale('en');
 
-module.exports = function (eleventyConfig) {
-
+module.exports = function(eleventyConfig) {
+  // Filters for date formatting
   eleventyConfig.addFilter('dateIso', date => {
     return moment(date).toISOString();
   });
@@ -12,12 +12,26 @@ module.exports = function (eleventyConfig) {
     return moment(date).utc().format('LL'); // E.g. May 31, 2019
   });
 
+  // Add excerpt functionality
   eleventyConfig.addShortcode('excerpt', article => extractExcerpt(article));
 
   // Folders to copy to output folder
-  eleventyConfig.addPassthroughCopy("css");
+  eleventyConfig.addPassthroughCopy("src/css");
+
+  // Return configuration options
+  return {
+    dir: {
+      input: "src",           // Input directory
+      output: "_site",        // Output directory
+      includes: "_includes",  // Includes directory
+      layouts: "_includes",   // Layouts directory
+      // If you don't have a _data directory yet, that's fine
+      // 11ty will create it if needed when you add data files
+    }
+  };
 };
 
+// Helper function for excerpts
 function extractExcerpt(article) {
   if (!article.hasOwnProperty('templateContent')) {
     console.warn('Failed to extract excerpt: Document has no property "templateContent".');
