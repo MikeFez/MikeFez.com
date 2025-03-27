@@ -15,10 +15,6 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
-# Needed to deploy to GitHub pages subdomain. (E.g. `your-username.github.io/eleventy-notes/`)
-env:
-  ELEVENTY_NOTES_PATH_PREFIX: "eleventy-notes"
-
 jobs:
   setup:
     name: Setup and Build
