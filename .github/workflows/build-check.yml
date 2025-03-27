@@ -24,10 +24,12 @@ jobs:
         run: npm run build --prefix .app
 
       - name: Verify build output
+        env:
+          BUILD_OUTPUT_DIR: ".app/dist"
         run: |
-          if [ -d "app/dist" ]; then
+          if [ -d "$BUILD_OUTPUT_DIR" ]; then
             echo "✅ Build succeeded - output directory exists"
-            if [ "$(find app/dist -type f | wc -l)" -gt 0 ]; then
+            if [ "$(find $BUILD_OUTPUT_DIR -type f | wc -l)" -gt 0 ]; then
               echo "✅ Build output contains files"
             else
               echo "❌ Build output directory is empty"
