@@ -21,7 +21,7 @@ The first thing that is needed in order to greet by name is an understanding of 
 But how do we determine not just who is home, but who recently arrived? We take a look at 2 components of that device tracker state: That the person's current location is home, and that the state changed to home within the past X minutes.
 
 We could just use that logic within an automation itself – just have those 2 requirements sit as the condition portion. But this can become frustrating when you have multiple people to track and also should you be using this logic in multiple automations. So let's move them to template binary sensors, and use an input number to make it easy to configure the number of minutes that we should consider someone recent from the front end, until we find that sweet spot:
-
+{% raw %}
 ```yaml
 input_number:
   consider_recent_arrival_mins:
@@ -43,6 +43,7 @@ binary_sensor:
         value_template: >-
           {{ states('sensor.time') and is_state("device_tracker.michaels_iphone", "home") and as_timestamp(now()) - as_timestamp(states.device_tracker.michaels_iphone.last_changed | default(0)) | int <= 60 * (states.input_number.consider_recent_arrival_mins.state | int) }}
 ```
+{% endraw %}
 
 Before I break down the template, it's important to know how the template functions. A binary_sensor is only true or false, and so the template should resolve to a simple true/false as well. Also, a template only updates when the items it 'monitors' update. So lets take a look at the two straight forward portions:
 
