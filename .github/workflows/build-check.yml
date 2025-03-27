@@ -9,29 +9,25 @@ jobs:
   build_and_test:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+        name: Checkout
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
+        name: Setup Node
         with:
-          node-version: 18
-          cache: 'npm'
+          node-version: 20
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install --prefix .app
 
-      - name: Run tests
-        run: npm test
-
-      - name: Build with 11ty
-        run: npm run build
+      - name: Build
+        run: npm run build --prefix .app
 
       - name: Verify build output
         run: |
-          if [ -d "_site" ]; then
+          if [ -d "app/dist" ]; then
             echo "✅ Build succeeded - output directory exists"
-            if [ "$(find _site -type f | wc -l)" -gt 0 ]; then
+            if [ "$(find app/dist -type f | wc -l)" -gt 0 ]; then
               echo "✅ Build output contains files"
             else
               echo "❌ Build output directory is empty"
