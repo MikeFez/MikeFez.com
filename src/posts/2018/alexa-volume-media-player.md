@@ -39,7 +39,7 @@ Woot woot! Volume control!
 So here's the plan. We're going to set up an automation to trigger at 8AM & 8PM. The original method to do this was to have Spotify select the Alexa device that we want to change the volume of, then actually follow through and set the volume. It's now even more simple – we just select an Alexa device itself and send the command directly to it – if that sounds simple, it's because it is! Check out the code below.
 
 ## Example Code - 8PM and 8AM Volume Changes
-
+{% raw %}
 ```yaml
 #############################################################
 # Change Living Room Alexa Volume @ 8AM
@@ -69,7 +69,7 @@ So here's the plan. We're going to set up an automation to trigger at 8AM & 8PM.
       entity_id: media_player.bedroom_alexa
       volume_level: '0.20'
 ```
-
+{% endraw %}
 ## Conclusion
 
 While I could simplify this into a single automation by using a template that determines which time caused the trigger and setting the volume accordingly, I figured I'd separate them for a more basic read.

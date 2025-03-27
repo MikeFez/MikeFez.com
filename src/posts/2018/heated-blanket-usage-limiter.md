@@ -29,7 +29,7 @@ But, since the blanket does not resume heating upon being reconnected, we can ta
 Essentially, the blanket will always be in "standby" mode as long as our sound machine is on, and it will only remain in "heating" mode for 1 hour before reverting back to"standby" mode via a quick off & on of the Wemo switch. This also safeguards us against by daughter being smart enough to enable the Wemo and turning on the heat during the day – worst case scenario, it's only running for an hour.
 
 So what does this all look like? Pretty simple, actually:
-
+{% raw %}
 ```yaml
 - alias: '[Heated Blanket] Turn Off After 1 Hour Of Use'
   trigger:
@@ -71,6 +71,7 @@ So what does this all look like? Pretty simple, actually:
     data:
       entity_id: switch.heated_blanket
 ```
+{% endraw %}
 
 The second automation is self explanatory, it just turns on the heated blanket when the sound machine is.
 

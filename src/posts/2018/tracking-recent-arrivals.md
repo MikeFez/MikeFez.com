@@ -81,6 +81,7 @@ The automation will work as follows:
 
 So what does that look like? This:
 
+{% raw %}
 ```yaml
 automation:
   - alias: "[Jarvis] Door Announcement"
@@ -119,6 +120,7 @@ automation:
           {% endif %}
           .'
 ```
+{% endraw %}
 
 What does this sound like?
 
