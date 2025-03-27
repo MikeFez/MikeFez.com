@@ -1,0 +1,40 @@
+name: Build Check
+
+on:
+  pull_request:
+    branches: ["main"]
+  workflow_dispatch:
+
+jobs:
+  build_check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build with 11ty
+        run: npm run build
+
+      - name: Verify build output
+        run: |
+          if [ -d "_site" ]; then
+            echo "✅ Build succeeded - output directory exists"
+            if [ "$(find _site -type f | wc -l)" -gt 0 ]; then
+              echo "✅ Build output contains files"
+            else
+              echo "❌ Build output directory is empty"
+              exit 1
+            fi
+          else
+            echo "❌ Build failed - output directory does not exist"
+            exit 1
+          fi
