@@ -1,0 +1,43 @@
+{
+  "name": "eleventy-notes",
+  "version": "0.28.1",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "start": "npm-run-all clean -p css:watch js:watch 11ty:serve",
+    "build": "npm-run-all clean -p css:build js:build 11ty:build",
+    "11ty:serve": "eleventy --serve",
+    "11ty:build": "eleventy",
+    "themes:generate": "node ./scripts/generate-themes.js",
+    "css:watch": "node scripts/bundle-css.js --watch",
+    "js:watch": "node scripts/bundle-js.js --watch",
+    "css:build": "node scripts/bundle-css.js",
+    "js:build": "node scripts/bundle-js.js",
+    "clean": "rimraf dist"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
+    "@parcel/transformer-sass": "^2.13.0",
+    "@radix-ui/colors": "^3.0.0",
+    "cheerio": "^1.0.0",
+    "markdown-it-anchor": "^9.0.1",
+    "markdown-it-footnote": "^4.0.0",
+    "markdown-it-task-checkbox": "^1.0.6",
+    "nanohtml": "^1.10.0",
+    "node-html-parser": "^6.1.13",
+    "npm-run-all2": "^7.0.1",
+    "parcel": "^2.13.0",
+    "rimraf": "^6.0.1",
+    "sass": "^1.81.0"
+  },
+  "dependencies": {
+    "alpinejs": "^3.14.1",
+    "lucide": "^0.469.0",
+    "pagefind": "^1.1.0",
+    "prism-themes": "^1.9.0"
+  }
+}
