@@ -11,18 +11,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         name: Checkout
-
       - uses: actions/setup-node@v4
         name: Setup Node
         with:
           node-version: 20
-
       - name: Install dependencies
-        run: cd .app && npm install
-
+        run: npm install --prefix .app
       - name: Build
-        run: cd .app && npm run build
-
+        run: npm run build --prefix .app
       - name: Verify build output
         env:
           BUILD_OUTPUT_DIR: ".app/dist"
