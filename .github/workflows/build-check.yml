@@ -1,4 +1,4 @@
-name: Build Check
+name: Build and Test
 
 on:
   pull_request:
@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build_check:
+  build_and_test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -20,6 +20,9 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Run tests
+        run: npm test
 
       - name: Build with 11ty
         run: npm run build
