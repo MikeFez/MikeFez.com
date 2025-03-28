@@ -16,10 +16,15 @@ panel: false
     <h1 class="page__title"><span lang="{% uiLang %}">{{ 'page.tag.title' | t}}</span> {{ tag.label }} <small>({{ tag.notes.length }})</small></h1>
     <ul role="list" class="stack">
       {% for post in tag.notes | sortNotesByTitle %}
-        <li>
+        <li class="note-item">
           <a href="{{ post.url }}" class="note-link">
             {{ post.data.title or post.page.fileSlug }}
           </a>
+          {% if post.data.excerpt %}
+            <div class="note-excerpt">
+              {{ post.data.excerpt }}
+            </div>
+          {% endif %}
         </li>
       {% endfor %}
     </ul>

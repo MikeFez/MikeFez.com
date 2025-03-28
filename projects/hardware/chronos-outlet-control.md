@@ -3,10 +3,8 @@ title: Chronos Outlet Control
 publishedOn: 2009-06-19
 updatedOn:
 tags: ['post', 'hardware']
+excerpt: I've been kicking around the idea to remotely control my room's lights for a while, but I never got around to actually designing it. Using a Chronos watch and Arduino, I created a system to control multiple outlets wirelessly.
 ---
-<!-- Excerpt Start -->
-I've been kicking around the idea to remotely control my room's lights for a while, but I never got around to actually designing it. Using a Chronos watch and Arduino, I created a system to control multiple outlets wirelessly.
-<!-- Excerpt End -->
 
 > [!danger] Note From Future MikeFez
 > This was cool back in 2009. Now? Do yourself a favor and just buy a smart watch and a smart outlet.

@@ -3,10 +3,8 @@ title: Automating Alexa Volume As A Media Player
 publishedOn: 2018-12-19
 updatedOn:
 tags: ['post', 'home-automation']
+excerpt: This guide is an update to my previous post on automating Alexa volume. Using a custom component, we can now control Alexa devices directly as media players in Home Assistant, providing a more stable solution.
 ---
-<!-- Excerpt Start -->
-This guide is an update to my previous post on automating Alexa volume. Using a custom component, we can now control Alexa devices directly as media players in Home Assistant, providing a more stable solution.
-<!-- Excerpt End -->
 
 > **Latest Version**
 >

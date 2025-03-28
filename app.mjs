@@ -66,6 +66,9 @@ export default defineConfig({
   customProperties: {
     properties: [
       {
+        name: "excerpt",
+      },
+      {
         name: "publishedOn",
 
         // Optionally, format the date.

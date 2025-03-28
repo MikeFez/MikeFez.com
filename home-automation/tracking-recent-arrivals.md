@@ -3,10 +3,8 @@ title: Tracking Recent Arrivals & Have Alexa Welcome Them
 publishedOn: 2018-12-18
 updatedOn:
 tags: ['post', 'home-automation']
+excerpt: I remember walking out of a movie theater in 2008 having just watched *Iron Man*, and thinking "Damn, I need JARVIS in my life". Using Home Assistant and Alexa, I created a system to welcome people by name when they arrive home.
 ---
-<!-- Excerpt Start -->
-I remember walking out of a movie theater in 2008 having just watched *Iron Man*, and thinking "Damn, I need JARVIS in my life". Using Home Assistant and Alexa, I created a system to welcome people by name when they arrive home.
-<!-- Excerpt End -->
 
 ## Introduction
 

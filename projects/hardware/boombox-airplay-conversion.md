@@ -3,10 +3,8 @@ title: Boombox Airplay Conversion
 publishedOn: 2012-06-20
 updatedOn:
 tags: ['post', 'hardware']
+excerpt: Years ago, I purchased a Sony RDH-GTK1i boombox that has a 30-pin Apple connector, USB, RCA and radio functionality. At the time of purchase, I had an iPod which was my main audio device. This is how I converted it to support AirPlay.
 ---
-<!-- Excerpt Start -->
-Years ago, I purchased a Sony RDH-GTK1i boombox that has a 30-pin Apple connector, USB, RCA and radio functionality. At the time of purchase, I had an iPod which was my main audio device. This is how I converted it to support AirPlay.
-<!-- Excerpt End -->
 
 > [!danger] Note From Future MikeFez
 > This was a cool expansion of my boombox at the time, but there's a million ways to improve this now.

@@ -3,10 +3,8 @@ title: Heated Blanket Usage Limiter
 publishedOn: 2018-12-21
 updatedOn:
 tags: ['post', 'home-automation']
+excerpt: I live in an older house with poor insulation, and I turn my thermostat down to 62 at night. Using Home Assistant and a smart plug, I created an automation to limit how long our heated blanket stays on.
 ---
-<!-- Excerpt Start -->
-I live in an older house with poor insulation, and I turn my thermostat down to 62 at night. Using Home Assistant and a smart plug, I created an automation to limit how long our heated blanket stays on.
-<!-- Excerpt End -->
 
 ## Introduction
 
