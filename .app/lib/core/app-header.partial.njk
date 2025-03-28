@@ -4,7 +4,25 @@
   {% include 'core/nav-toggle.partial.njk' %}
 
   <a href="/" class="app-header__title">
-    {{ app.title }}
+    <svg height="35" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 70">
+      <!-- First we define CSS classes inside the SVG -->
+      <style>
+        .brackets { fill: var(--color-primary-bg-solid); }
+        .name-mike { fill: var(--color-neutral-text-contrast); }
+        .name-fez { fill: var(--color-primary-bg-solid); }
+      </style>
+
+      <!-- Opening curly bracket with class -->
+      <text x="0" y="57" font-family="Arial, sans-serif" font-size="75" class="brackets">{</text>
+
+      <!-- Name text with different classes -->
+      <text x="30" y="55" font-family="Arial, sans-serif" font-size="50" font-weight="bold">
+        <tspan class="name-mike">Mike</tspan><tspan class="name-fez">Fez</tspan>
+      </text>
+
+      <!-- Closing curly bracket with class -->
+      <text x="225" y="57" font-family="Arial, sans-serif" font-size="75" class="brackets">}</text>
+    </svg>
   </a>
 
   <div class="app-header__search show-md">
