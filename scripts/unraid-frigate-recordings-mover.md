@@ -14,7 +14,7 @@ Before diving into storage management, let's clarify what Frigate is. [Frigate](
 
 ## Storage Challenges with Security Cameras
 
-My Frigate NVR setup records continuous footage from several security cameras around my property. While the AI features are fantastic for reducing false alerts, my implementation still generates hundreds of gigabytes of video files daily.
+My Frigate NVR setup records continuous footage from several security cameras around my property. While the AI features are fantastic for reducing false alerts and limiting recordings to only the detection of events, I wanted to store continuous footage from my cameras for a period of one month. Unfortunately, this configuration generates hundreds of gigabytes of video files daily.
 
 This created a storage challenge on my Unraid server:
 - New recordings need fast write speeds (ideal for SSD/cache)

@@ -1,30 +1,37 @@
 ---
 title: Automating Plex Media Management with Python
 publishedOn: 2025-03-27
-updatedOn:
+updatedOn: 2025-04-11
 tags: ['post', 'plex', 'unraid', 'automation', 'python']
-excerpt: Running Plex on Unraid and want recent recordings on an SSD/NVMe share? I created a Python script that automatically identifies watched media and moves it from my cache to my larger array, optimizing storage while preserving my library structure.
+excerpt: Running Plex on Unraid and want only recent & unwatched downloads on an SSD/NVMe share? I created a Python script that automatically identifies watched media and moves it from my cache to my larger array, optimizing storage while preserving my library structure.
 ---
 
 ## The Plex Storage Balancing Act
 
-Running a Plex server presents an interesting storage challenge. New content and current watches benefit from the speed of SSD storage, but maintaining a large library quickly becomes expensive if everything stays on fast drives.
+Running a Plex server on Unraid can present an interesting storage challenge. New content and current watches benefit from the speed of SSD storage, but maintaining a large library quickly becomes expensive if everything stays on faster SSD and NVMe drives. The obvious solution is to periodically move content to my larger and slower array, but what criteria should I use to decide what (and when) to move?
 
-I noticed a pattern in our household's viewing habits - once we finish watching something, we rarely return to it. Yet all this watched content was taking up valuable space on my fastest storage.
+## The Problem With Mover
 
-The standard Unraid mover didn't solve this problem because it doesn't know which media has been watched. I needed something smarter - a tool that could make storage decisions based on our actual viewing behavior.
+Unraid's built-in `mover` tool seems like it would be the logical option here. When you set up a share in Unraid, you define the primary and optional secondary location of content. Typically, shares are used to primarily store data on faster drives, with the secondary location being the slower HDD array. Should the primary location become full, Unraid will automatically start storing subsequent data in the array. However, with `mover`, tool, you can also configure a storage usage percentage which, if reached in the primary location, will move data from primary to secondary at a scheduled time.
+
+However, when it comes to _which_ files it should move, the options are limited.
+
+## What should be moved?
+My Plex server solely serves my home; the only users are my wife, my daughter, and myself. And in my situation, there's an obvious pattern in our household's viewing habits - once we finish watching something, we rarely return to it in the near future. _This_ is the reason mover didn't work for me. I don't care about which files are older than X days, or which files are larger than Y GB. I want to retain new media on my NVMe share until it has been watched, allowing smooth buffer-less playback. And once it's been watched, the likelihood of another watch is low, and so it can be moved to the slower array.
+
+The standard Unraid `mover` approach isn't capable of using this criteria to determine the organization of my content. I needed something smarter - a tool that could make storage decisions based on our actual viewing behavior.
 
 ## Watch Status as a Storage Signal
 
 I created a Python script that uses the Plex API to identify watched content. It:
 
-Connects to my Plex server and examines all libraries
-Checks watch status across all users in my household
-Identifies completely watched shows and movies
-Moves them from my NVME cache to the array storage
-Preserves the exact file structure so Plex doesn't notice the change
+- Connects to my Plex server and examines all libraries
+- Checks watch status across all users in my household
+- Identifies completely watched shows and movies
+- Moves them from my NVME cache to the array storage
+- Preserves the exact file structure so Plex doesn't notice the change
 
-This approach makes much more logical use of my tiered storage. Content we're actively watching stays fast and responsive, while our "digital memories" move to more cost-effective storage. The best part is that it happens automatically based on how we actually use our media library.
+This approach makes much more logical use of my tiered storage. Content we're planning to watch will be fast and responsive, and post-watch, these files will be "archived" for potential future use on more cost-effective storage. The best part is that it happens automatically based on how we actually use our media library.
 
 ## How It Works
 
@@ -78,7 +85,7 @@ def get_watched_media(server):
         # Process each home user...
 ```
 
-This approach ensures that if any user in your household has watched a movie or episode, it gets moved to the array storage.
+This approach ensures that if *any* user in your household has watched a movie or episode, it gets moved to the array storage. This is ideal in my situation, given my daughter doesn't typically watch the same shows/movies as my wife and I, and content that we would watch as a family is typically viewed through her account anyways.
 
 ### Moving Files While Preserving Structure
 
